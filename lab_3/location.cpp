@@ -2,17 +2,18 @@
 #include "location.h"
 #include <iostream>
 
-void location::Location(int distanceSchool, int distanceHospital, int distanceKindergarten, char houseStreet[30], int numHouse)
+void location::LocationСompletion(int distanceSchool_2, int distanceHospital_2, int distanceKindergarten_2, char houseStreet_2[30], int numHouse_2)
 {
-	houseStreet[0] = 0;
-	distanceSchool = distanceSchool;
-	distanceHospital = distanceHospital;
-	distanceKindergarten = distanceKindergarten;
-	numHouse = numHouse;
-	strcat(houseStreet, houseStreet);
+	memset(&houseStreet, 0, sizeof(houseStreet));
+
+	distanceSchool = distanceSchool_2;
+	distanceHospital = distanceHospital_2;
+	distanceKindergarten = distanceKindergarten_2;
+	numHouse = numHouse_2;
+	strcat(houseStreet, houseStreet_2);
 }
 
-void location::Location_console()
+void location::LocationСompletion_console()
 {
 	memset(&houseStreet, 0, sizeof(houseStreet));
 
@@ -50,4 +51,29 @@ void location::LocationViwe()
 	printf("  Расстояние до детскогосада: %d\n", distanceKindergarten);
 	printf("  Название улицы: %s\n", houseStreet);
 	printf("  Номер дома: %d\n", numHouse);
+}
+
+int location::Out_distanceSchool()
+{
+	return distanceSchool;
+}
+
+int location::Out_distanceHospital()
+{
+	return distanceHospital;
+}
+
+int location::Out_distanceKindergarten()
+{
+	return distanceKindergarten;
+}
+
+int location::Out_numHouse()
+{
+	return numHouse;
+}
+
+char* location::Out_houseStreet()
+{
+	return houseStreet;
 }

@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="flat.cpp" />
+    <ClCompile Include="house.cpp" />
     <ClCompile Include="lab_3.cpp" />
     <ClCompile Include="location.cpp" />
     <ClCompile Include="street.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="flat.h" />
+    <ClInclude Include="house.h" />
     <ClInclude Include="lab_3.h" />
     <ClInclude Include="location.h" />
     <ClInclude Include="street.h" />

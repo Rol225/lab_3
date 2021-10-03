@@ -2,7 +2,7 @@
 #include "street.h"
 #include <iostream>
 
-void street::Street(char streetName_2[], char streetDescription_2[])
+void street::StreetÑompletion(char streetName_2[], char streetDescription_2[])
 {
 	memset(&streetName, 0, sizeof(streetName));
 	memset(&streetDescription, 0, sizeof(streetDescription));
@@ -11,7 +11,7 @@ void street::Street(char streetName_2[], char streetDescription_2[])
 	strcat(streetDescription, streetDescription_2);
 }
 
-void street::Street_console()
+void street::StreetÑompletion_console()
 {
 	memset(&streetName, 0, sizeof(streetName));
 	memset(&streetDescription, 0, sizeof(streetDescription));
@@ -24,4 +24,14 @@ void street::StreetView()
 {
 	printf("\n  Óëèöà: %s\n", streetName);
 	printf("  Îïèñàíèå óëèöû: %s\n", streetDescription);
+}
+
+char* street::Out_streetName()
+{
+	return streetName;
+}
+
+char* street::Out_streetDescription()
+{
+	return streetDescription;
 }

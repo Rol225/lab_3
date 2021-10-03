@@ -1,8 +1,6 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include "lab_3.h"
-#include "location.h"
-#include "flat.h"
-#include "street.h"
+#include "house.h"
 
 int main()
 {
@@ -35,7 +33,7 @@ int main()
 			FunckForStreet();
 		}
 		else if (option == 4) {
-			//FunckForHouse();
+			FunckForHouse();
 		}
 	} while (option != 5);
 }
@@ -56,13 +54,13 @@ void FunckForLocation() {
 				while (getchar() != '\n');
 				printf("Ошибка. Введите число: ");
 			}
-			if (option > 3) {
+			if (option > 4) {
 				printf("\nОшибка. выбирете из допустимых значений: ");
 			}
 		} while (option > 3 || option <= 0);
 
 		if (option == 1) {
-			location.Location_console();
+			location.LocationСompletion_console();
 		}
 		else if (option == 2) {
 			printf("\nВыберите расстояние до школы: ");
@@ -91,7 +89,7 @@ void FunckForLocation() {
 
 			printf("\nУлица: "); scanf("%s", &houseStreet); while (getchar() != '\n');
 
-			location.Location(distanceSchool, distanceHospital, distanceKindergarten, houseStreet, numHouse);
+			location.LocationСompletion(distanceSchool, distanceHospital, distanceKindergarten, houseStreet, numHouse);
 		}
 		else if (option == 3) {
 			printf("\n");
@@ -114,13 +112,13 @@ void FunckForFlat() {
 				while (getchar() != '\n');
 				printf("Ошибка. Введите число: ");
 			}
-			if (option > 3) {
+			if (option > 4) {
 				printf("\nОшибка. выбирете из допустимых значений: ");
 			}
 		} while (option > 3 || option <= 0);
 
 		if (option == 1) {
-			flat.Flat_console();
+			flat.FlatСompletion_console();
 		}
 		else if (option == 2) {
 			printf("\nВыберите стоимость квартиры: ");
@@ -141,7 +139,7 @@ void FunckForFlat() {
 				printf("Ошибка. Введите число: ");
 			}
 
-			flat.Flat(coin, countRoom, numFlat);
+			flat.FlatСompletion(coin, countRoom, numFlat);
 		}
 		else if (option == 3) {
 			flat.FlatViwe();
@@ -165,13 +163,13 @@ void FunckForStreet() {
 				while (getchar() != '\n');
 				printf("Ошибка. Введите число: ");
 			}
-			if (option > 3) {
+			if (option > 4) {
 				printf("\nОшибка. выбирете из допустимых значений: ");
 			}
 		} while (option > 3 || option <= 0);
 
 		if (option == 1) {
-			street.Street_console();
+			street.StreetСompletion_console();
 		}
 		else if (option == 2) {
 			memset(&streetName, 0, sizeof(streetName));
@@ -180,10 +178,92 @@ void FunckForStreet() {
 			printf("\nУлица: "); scanf("%s", &streetName); while (getchar() != '\n');
 			printf("Описание улици: "); gets_s(streetDescription, 150);
 
-			street.Street(streetName, streetDescription);
+			street.StreetСompletion(streetName, streetDescription);
 		}
 		else if (option == 3) {
 			street.StreetView();
+		}
+
+	} while (option != 4);
+}
+
+void FunckForHouse()
+{
+	int distanceSchool, distanceHospital, distanceKindergarten, numHouse, coin, countRoom, numFlat;
+	char streetDescription[150];
+	char houseStreet[30];
+
+	street street;
+	house house;
+
+	int option = 0;
+	do {
+		printf("\n\n  1) Заполнить через встроенную функцию\n  2) Заполнить через внешнюю функцию\n  3) Вывести информацию со структуры\n  4) Выход в главное меню\n");
+		printf("Выберите действие: ");
+		do {
+			while (scanf("%d", &option) != 1) {
+				while (getchar() != '\n');
+				printf("Ошибка. Введите число: ");
+			}
+			if (option > 4) {
+				printf("\nОшибка. выбирете из допустимых значений: ");
+			}
+		} while (option > 3 || option <= 0);
+
+		if (option == 1) {
+			house.HouseСompletion_console();
+		}
+		else if (option == 2) {
+
+			printf("Выберите расстояние до школы: ");
+			while (scanf("%d", &distanceSchool) != 1) {
+				while (getchar() != '\n');
+				printf("Ошибка. Введите число: ");
+			}
+
+			printf("Выберите расстояние до больницы: ");
+			while (scanf("%d", &distanceHospital) != 1) {
+				while (getchar() != '\n');
+				printf("Ошибка. Введите число: ");
+			}
+
+			printf("Выберите расстояние до детского сада: ");
+			while (scanf("%d", &distanceKindergarten) != 1) {
+				while (getchar() != '\n');
+				printf("Ошибка. Введите число: ");
+			}
+
+			printf("Выберите стоимость квартиры: ");
+			while (scanf("%d", &coin) != 1) {
+				while (getchar() != '\n');
+				printf("Ошибка. Введите число: ");
+			}
+
+			printf("Выберите кол-во комнат: ");
+			while (scanf("%d", &countRoom) != 1) {
+				while (getchar() != '\n');
+				printf("Ошибка. Введите число: ");
+			}
+
+			printf("Номер дома: ");
+			while (scanf("%d", &numHouse) != 1) {
+				while (getchar() != '\n');
+				printf("Ошибка. Введите число: ");
+			}
+
+			printf("Номер квартиры: ");
+			while (scanf("%d", &numFlat) != 1) {
+				while (getchar() != '\n');
+				printf("Ошибка. Введите число: ");
+			}
+
+			printf("\nУлица: "); scanf("%s", &houseStreet); while (getchar() != '\n');
+			printf("Описание улици: "); gets_s(streetDescription, 150);
+
+			house.HouseСompletion(distanceSchool, distanceHospital, distanceKindergarten, houseStreet, numHouse, coin, countRoom, numFlat, streetDescription);
+		}
+		else if (option == 3) {
+			house.House_view();
 		}
 
 	} while (option != 4);

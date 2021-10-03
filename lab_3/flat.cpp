@@ -2,14 +2,14 @@
 #include "flat.h"
 #include <iostream>
 
-void flat::Flat(int coin, int countRoom, int numFlat)
+void flat::FlatСompletion(int coin_2, int countRoom_2, int numFlat_2)
 {
-	coin = coin;
-	countRoom = countRoom;
-	numFlat = numFlat;
+	coin = coin_2;
+	countRoom = countRoom_2;
+	numFlat = numFlat_2;
 }
 
-void flat::Flat_console()
+void flat::FlatСompletion_console()
 {
 	printf("\nВыберите стоимость квартиры: ");
 	while (scanf("%d", &coin) != 1) {
@@ -36,3 +36,19 @@ void flat::FlatViwe()
 	printf("  Количество комнат: %d\n", countRoom);
 	printf("  Номер квартиры: %d\n", numFlat);
 }
+
+int flat::Out_coin()
+{
+	return coin;
+}
+
+int flat::Out_countRoom()
+{
+	return countRoom;
+}
+
+int flat::Out_numFlat()
+{
+	return numFlat;
+}
+
