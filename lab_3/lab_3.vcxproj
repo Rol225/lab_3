@@ -141,10 +141,12 @@
   <ItemGroup>
     <ClCompile Include="flat.cpp" />
     <ClCompile Include="lab_3.cpp" />
+    <ClCompile Include="location.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="flat.h" />
     <ClInclude Include="lab_3.h" />
+    <ClInclude Include="location.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
