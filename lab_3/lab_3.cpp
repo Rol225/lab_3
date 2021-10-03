@@ -2,6 +2,7 @@
 #include "lab_3.h"
 #include "location.h"
 #include "flat.h"
+#include "street.h"
 
 int main()
 {
@@ -31,7 +32,7 @@ int main()
 			FunckForFlat();
 		}
 		else if (option == 3) {
-			//FunckForStreet();
+			FunckForStreet();
 		}
 		else if (option == 4) {
 			//FunckForHouse();
@@ -144,6 +145,45 @@ void FunckForFlat() {
 		}
 		else if (option == 3) {
 			flat.FlatViwe();
+		}
+
+	} while (option != 4);
+}
+
+void FunckForStreet() {
+	char streetName[30] = { 0 };
+	char streetDescription[150] = { 0 };
+
+	street street;
+
+	int option = 0;
+	do {
+		printf("\n\n  1) Заполнить через встроенную функцию\n  2) Заполнить через внешнюю функцию\n  3) Вывести информацию со структуры\n  4) Выход в главное меню\n");
+		printf("Выберите действие: ");
+		do {
+			while (scanf("%d", &option) != 1) {
+				while (getchar() != '\n');
+				printf("Ошибка. Введите число: ");
+			}
+			if (option > 3) {
+				printf("\nОшибка. выбирете из допустимых значений: ");
+			}
+		} while (option > 3 || option <= 0);
+
+		if (option == 1) {
+			street.Street_console();
+		}
+		else if (option == 2) {
+			memset(&streetName, 0, sizeof(streetName));
+			memset(&streetDescription, 0, sizeof(streetDescription));
+
+			printf("\nУлица: "); scanf("%s", &streetName); while (getchar() != '\n');
+			printf("Описание улици: "); gets_s(streetDescription, 150);
+
+			street.Street(streetName, streetDescription);
+		}
+		else if (option == 3) {
+			street.StreetView();
 		}
 
 	} while (option != 4);
