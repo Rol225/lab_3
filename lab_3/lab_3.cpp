@@ -44,7 +44,7 @@ void FunckForLocation() {
 	char houseStreet[30];
 	int option = 0;
 
-	location location;
+	location *location_1 = new location;
 
 	do {
 		printf("\n\n  1) Заполнить через встроенную функцию\n  2) Заполнить через внешнюю функцию\n  3) Вывести информацию со структуры\n  4) Выход в главное меню\n");
@@ -57,10 +57,10 @@ void FunckForLocation() {
 			if (option > 4) {
 				printf("\nОшибка. выбирете из допустимых значений: ");
 			}
-		} while (option > 3 || option <= 0);
+		} while (option > 4 || option <= 0);
 
 		if (option == 1) {
-			location.LocationСompletion_console();
+			location_1->LocationСompletion_console();
 		}
 		else if (option == 2) {
 			printf("\nВыберите расстояние до школы: ");
@@ -89,20 +89,22 @@ void FunckForLocation() {
 
 			printf("\nУлица: "); scanf("%s", &houseStreet); while (getchar() != '\n');
 
-			location.LocationСompletion(distanceSchool, distanceHospital, distanceKindergarten, houseStreet, numHouse);
+			location_1->LocationСompletion(distanceSchool, distanceHospital, distanceKindergarten, houseStreet, numHouse);
 		}
 		else if (option == 3) {
 			printf("\n");
-			location.LocationViwe();
+			location_1->LocationViwe();
 		}
 	} while (option != 4);
 
+	delete location_1;
 }
 
 void FunckForFlat() {
 	int coin, countRoom, numFlat;
 	int option = 0;
-	flat flat;
+
+	flat *flat_1 = new flat;
 
 	do {
 		printf("\n\n  1) Заполнить через встроенную функцию\n  2) Заполнить через внешнюю функцию\n  3) Вывести информацию со структуры\n  4) Выход в главное меню\n");
@@ -115,10 +117,10 @@ void FunckForFlat() {
 			if (option > 4) {
 				printf("\nОшибка. выбирете из допустимых значений: ");
 			}
-		} while (option > 3 || option <= 0);
+		} while (option > 4 || option <= 0);
 
 		if (option == 1) {
-			flat.FlatСompletion_console();
+			flat_1->FlatСompletion_console();
 		}
 		else if (option == 2) {
 			printf("\nВыберите стоимость квартиры: ");
@@ -139,20 +141,22 @@ void FunckForFlat() {
 				printf("Ошибка. Введите число: ");
 			}
 
-			flat.FlatСompletion(coin, countRoom, numFlat);
+			flat_1->FlatСompletion(coin, countRoom, numFlat);
 		}
 		else if (option == 3) {
-			flat.FlatViwe();
+			flat_1->FlatViwe();
 		}
 
 	} while (option != 4);
+
+	delete flat_1;
 }
 
 void FunckForStreet() {
 	char streetName[30] = { 0 };
 	char streetDescription[150] = { 0 };
 
-	street street;
+	street *street_1 = new street;
 
 	int option = 0;
 	do {
@@ -166,10 +170,10 @@ void FunckForStreet() {
 			if (option > 4) {
 				printf("\nОшибка. выбирете из допустимых значений: ");
 			}
-		} while (option > 3 || option <= 0);
+		} while (option > 4 || option <= 0);
 
 		if (option == 1) {
-			street.StreetСompletion_console();
+			street_1->StreetСompletion_console();
 		}
 		else if (option == 2) {
 			memset(&streetName, 0, sizeof(streetName));
@@ -178,13 +182,15 @@ void FunckForStreet() {
 			printf("\nУлица: "); scanf("%s", &streetName); while (getchar() != '\n');
 			printf("Описание улици: "); gets_s(streetDescription, 150);
 
-			street.StreetСompletion(streetName, streetDescription);
+			street_1->StreetСompletion(streetName, streetDescription);
 		}
 		else if (option == 3) {
-			street.StreetView();
+			street_1->StreetView();
 		}
 
 	} while (option != 4);
+
+	delete street_1;
 }
 
 void FunckForHouse()
@@ -193,8 +199,7 @@ void FunckForHouse()
 	char streetDescription[150];
 	char houseStreet[30];
 
-	street street;
-	house house;
+	house *house_1 = new house;
 
 	int option = 0;
 	do {
@@ -208,10 +213,10 @@ void FunckForHouse()
 			if (option > 4) {
 				printf("\nОшибка. выбирете из допустимых значений: ");
 			}
-		} while (option > 3 || option <= 0);
+		} while (option > 4 || option <= 0);
 
 		if (option == 1) {
-			house.HouseСompletion_console();
+			house_1->HouseСompletion_console();
 		}
 		else if (option == 2) {
 
@@ -260,12 +265,13 @@ void FunckForHouse()
 			printf("\nУлица: "); scanf("%s", &houseStreet); while (getchar() != '\n');
 			printf("Описание улици: "); gets_s(streetDescription, 150);
 
-			house.HouseСompletion(distanceSchool, distanceHospital, distanceKindergarten, houseStreet, numHouse, coin, countRoom, numFlat, streetDescription);
+			house_1->HouseСompletion(distanceSchool, distanceHospital, distanceKindergarten, houseStreet, numHouse, coin, countRoom, numFlat, streetDescription);
 		}
 		else if (option == 3) {
-			house.House_view();
+			house_1->House_view();
 		}
 
 	} while (option != 4);
-}
 
+	delete house_1;
+}
